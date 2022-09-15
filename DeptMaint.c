@@ -1,8 +1,9 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define SIZE 50
 
-int main_menu(){
+int main_menu()
+{
     int choice;
     printf("1. Add Department\n");
     printf("2. Print Department Details\n");
@@ -10,25 +11,27 @@ int main_menu(){
 
     printf("\n");
     printf("Enter Your Choice:  ");
-    scanf("%d",&choice);
+    scanf("%d", &choice);
 
     return choice;
 }
 
-void add_department(){
+void add_department()
+{
 
     printf("department added testing....\n");
 }
 
+void print_department_details()
+{
 
-void print_department_details(){
-    
     printf("department details printed.\n");
 }
 
-int main(){
+int main()
+{
 
-    char department_name[SIZE] ;
+    char department_name[SIZE];
     int choice;
     int department_code;
 
@@ -37,45 +40,32 @@ int main(){
     printf("=======================================\n");
     printf("\n");
     printf("Department Maintenance Menu\n");
-    
-    while(1){
+
+    while (1)
+    {
 
         choice = main_menu();
-        
-        switch(choice){
 
-            case 1 :
-                        add_department();
-                        break;
+        switch (choice)
+        {
 
-            case 2 : 
-                        print_department_details();
-                        break;
+        case 1:
+            add_department();
+            break;
 
-            case 3 : 
-                        main_menu();   
-                        break;
+        case 2:
+            print_department_details();
+            break;
 
-            default :
-                        printf("Invalid Input !!!");
-                        exit(0);            
-                                            
+        case 3:
+            main_menu();
+            break;
+
+        default:
+            printf("Invalid Input !!!");
+            exit(0);
         }
-
-
-
-        
-        
-
     }
-
-   
-
-
-
-
-
-
 
     return 0;
 }
