@@ -19,6 +19,7 @@ int main_menu(){
 void add_department(){
 
     printf("department added .\n");
+    printf("testing");
 }
 
 
