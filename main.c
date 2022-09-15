@@ -8,14 +8,16 @@ int main(int argc, char const *argv[])
 {
     int inputUserId;
     int mainMenuChoice;
+    printf("\n\n");
     print_main_heading();
-    printf("                    Login Screen\n");
-    printf("                    ============\n");
-
+    printf("                 Login Screen\n");
+    printf("                 ============\n");
+    printf("\n");
     printf("        Enter User ID   : ........");
     scanf("%d", &inputUserId);
     printf("%d", inputUserId);
 
+    
     if (inputUserId == USER_ID)
     {
 
@@ -24,6 +26,7 @@ int main(int argc, char const *argv[])
         printf("Enter your choice : ");
         scanf("%d", &mainMenuChoice);
 
+        // Checking validity of the choice
         if (!(mainMenuChoice > 0 && mainMenuChoice <= 4))
         {
             printf("Enter a valid Option\n");

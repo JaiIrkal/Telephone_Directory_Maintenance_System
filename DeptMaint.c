@@ -34,6 +34,7 @@ int main(){
     int choice;
     int department_code;
 
+    printf("\n");
     printf("Telephone Directory Management System\n");
     printf("=======================================\n");
     printf("\n");
