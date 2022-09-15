@@ -5,21 +5,19 @@
 int main_menu(){
     int choice;
     printf("1. Add Department\n");
-        printf("\n");
-        printf("2. Print Department Details\n");
-        printf("3. Goto Main Menu\n");
+    printf("2. Print Department Details\n");
+    printf("3. Goto Main Menu\n");
 
-        printf("\n");
-        printf("Enter Your Choice:  ");
-        scanf("%d",&choice);
+    printf("\n");
+    printf("Enter Your Choice:  ");
+    scanf("%d",&choice);
 
-        return choice;
+    return choice;
 }
 
 void add_department(){
 
-    printf("department added .\n");
-    printf("testing");
+    printf("department added testing....\n");
 }
 
 
