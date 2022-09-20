@@ -123,7 +123,13 @@ int fnDisplayEmpMenu()
 
 int fnDisplayDepartmentMenu() 
 {
-	
+	printf("Telephone Directory Maintenance System");
+	printf("=======================================");
+	printf("\n");
+	printf("Department Maintenace Menu");
+	printf("===========================");
+	printf("\n");
+	printf("")	
 }
 
 
