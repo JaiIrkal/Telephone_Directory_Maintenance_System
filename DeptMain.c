@@ -29,7 +29,7 @@ int iFlag2;
 * Input Parameters: None
 ******************************************************************************/
 
-void fnInitializeDeptCode
+void fnInitializeDeptCode()
 {
 }
 

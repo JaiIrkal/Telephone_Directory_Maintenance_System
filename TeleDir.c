@@ -47,6 +47,9 @@ void fnLoginValidate(char acUserId[]);
 int fnDisplayTeleDirMenu() 
 {
 	
+	printf("\n");
+	printf("Telephone Directory Mainatinance System\n");
+	printf("========================================");
 
 }
 
@@ -197,9 +200,23 @@ Description: Check for valid User Id and calls fnMainMenu.
 * Input Parameters: None
 * Return : None
 ******************************************************************************/
+void fnLogin(){
+
+	fnLoginScreen();
+}
+
 
 void fnLoginScreen() 
 {
+
+	char chUserID[10];
+	printf("\n");
+	printf("			Telephone Directory Maintainance System\n");
+	printf("			========================================");
+	printf("			Login Screen 			 ");
+	printf("			============			 \n");
+	printf("Enter User ID 	:  ......");
+	scanf("%s", chUserID);
 	
 }
 void fnLoginValidate(char acUserId[])
@@ -219,6 +236,7 @@ int main (int argc, char** argv)
 {
 	/* calling fnLogin function to generate login screen*/
 	fnLogin();
+
 
 	/* Return a success code to Operating System */ 
 	return 0;
