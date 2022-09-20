@@ -1,0 +1,7 @@
+1000                    ram s1000  mys1001001
+1001                      aaa1001   aa1001001
+1002                      ram1004  mss      0
+1003                    Ram S1005  mys1005001
+1004                    aaaaa1000  mys1001002
+1005                        a1001  mys1001002
+1006                 Abhishek1002 chen      0
