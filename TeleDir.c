@@ -126,7 +126,11 @@ int fnDisplayDepartmentMenu()
 	printf("Add a Department");
 	printf("=================");
 	printf("\n");
-	printf("");
+	printf("1. Add Department\n");
+	printf("2. Print Department Details\n");
+	printf("3. Goto Main Menu\n");
+	printf("\n");
+	printf("Enter your Choice :");
 }
 
 /******************************************************************************
@@ -166,6 +170,7 @@ void fnDepartmentMenu()
 
 int fnDisplayMainMenu()
 {
+
 }
 
 /******************************************************************************
