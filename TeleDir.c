@@ -106,7 +106,7 @@ int fnDisplayEmpMenu()
 
 	printf("Enter your Choice:");
 
-	scanf("%d", )
+	// scanf("%d", );
 }
 
 /******************************************************************************
@@ -126,8 +126,7 @@ int fnDisplayDepartmentMenu()
 	printf("Add a Department");
 	printf("=================");
 	printf("\n");
-	printf(""
-		   );
+	printf("");
 }
 
 /******************************************************************************
@@ -195,7 +194,6 @@ void fnLogin()
 {
 	fnLoginScreen();
 }
-
 void fnLoginScreen()
 {
 	char chUserID[10];
