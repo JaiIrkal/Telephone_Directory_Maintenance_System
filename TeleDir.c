@@ -13,7 +13,7 @@
 #include <conio.h>
 
 /* Declare constants and function prototypes */
-#include "filefunctions.h"
+//#include "filefunctions.h"
 
 /* Forward declaration of functions defined in DeptMaint.c */
 int fnInitializeDeptCode();
@@ -24,16 +24,18 @@ void fnPrintDepts();
 int fnInitializeEmpCode();
 void fnAddNewEmp();
 void fnPrintEmp();
-void fnAddTeleNum();
+
 /* Forward declaration of functions defined in TeleEnq.c */
 void fnEnqByTeleNum();
 void fnEnqByName();
 
 /*Function prototype*/
+void fnAddTeleNum();
 void fnMainMenu();
-
 void fnTeleDirMenu();
 void fnLoginValidate(char acUserId[]);
+
+void fnLoginScreen();
 
 /******************************************************************************
  * Function: fnDisplayTeleDirMenu
@@ -46,6 +48,20 @@ void fnLoginValidate(char acUserId[]);
 
 int fnDisplayTeleDirMenu()
 {
+	printf("Telephone Directory Maintenance System\n");
+	printf("======================================\n");
+	printf("Telephone Directory Maintenance Menu\n");
+	printf("====================================\n");
+	printf("1. Add Telephone Number\n");
+	printf("2. Goto Main Menu\n");
+
+	printf("Enter your choice : \n");
+	char choice = getch();
+
+	if (choice == '1')
+		return 1;
+	if (choice == '2')
+		return 2;
 }
 
 /******************************************************************************
@@ -59,6 +75,24 @@ int fnDisplayTeleDirMenu()
 
 int fnDisplayTeleEnqMenu()
 {
+	printf("Telephone Directory Maintenance System\n");
+	printf("%s", "======================================\n");
+	printf("Telephone Enquiry Menu\n");
+	printf("======================\n");
+
+	printf("1. Enquiry on Employee Name\n");
+	printf("2. Enquiry on Employee Number\n");
+	printf("3. Goto Main Menu\n");
+
+	printf("Enter your choice : \n");
+	char choice = getch();
+
+	if (choice == '1')
+		return 1;
+	if (choice == '2')
+		return 2;
+	if (choice == '3')
+		return 3;
 }
 
 /******************************************************************************
@@ -71,6 +105,22 @@ int fnDisplayTeleEnqMenu()
  ******************************************************************************/
 void fnTeleEnqMenu()
 {
+	int choice = fnDisplayTeleEnqMenu();
+
+	switch (choice)
+	{
+	case 1:
+		fnEnqByName();
+		break;
+	case 2:
+		fnEnqByTeleNum();
+		break;
+	case 3:
+		fnMainMenu();
+		break;
+	default:
+		printf("Enter valid option\n");
+	}
 }
 
 /******************************************************************************
@@ -84,6 +134,15 @@ void fnTeleEnqMenu()
 
 void fnTeleDirMenu()
 {
+	int choice = fnDisplayTeleDirMenu();
+
+	switch (choice)
+	{
+	case 1:
+		fnAddTeleNum();
+	case 2:
+		fnMainMenu();
+	}
 }
 
 /******************************************************************************
@@ -97,16 +156,23 @@ void fnTeleDirMenu()
 
 int fnDisplayEmpMenu()
 {
-	printf("Telephone Directory Maintenace System");
-	printf("================================");
+	printf("Telephone Directory Maintenace System\n");
+	printf("================================\n");
 
-	printf("1. Add Employee");
-	printf("2. Print Employee Details");
-	printf("3. Goto Main Menu");
+	printf("1. Add Employee\n");
+	printf("2. Print Employee Details\n");
+	printf("3. Goto Main Menu\n");
 
-	printf("Enter your Choice:");
+	printf("Enter your Choice: \n");
 
-	// scanf("%d", );
+	char choice = getch();
+
+	if (choice == '1')
+		return 1;
+	if (choice == '2')
+		return 2;
+	if (choice == '3')
+		return 3;
 }
 
 /******************************************************************************
@@ -120,17 +186,24 @@ int fnDisplayEmpMenu()
 
 int fnDisplayDepartmentMenu()
 {
-	printf("Telephone Directory Maintenance System");
-	printf("======================================");
+	printf("Telephone Directory Maintenance System\n");
+	printf("======================================\n");
 	printf("\n");
-	printf("Add a Department");
-	printf("=================");
+	printf("Add a Department\n");
+	printf("=================\n");
 	printf("\n");
 	printf("1. Add Department\n");
 	printf("2. Print Department Details\n");
 	printf("3. Goto Main Menu\n");
 	printf("\n");
 	printf("Enter your Choice :");
+	char choice = getch();
+	if (choice == '1')
+		return 1;
+	if (choice == '2')
+		return 2;
+	if (choice == '3')
+		return 3;
 }
 
 /******************************************************************************
@@ -144,6 +217,19 @@ int fnDisplayDepartmentMenu()
 
 void fnEmpMenu()
 {
+	int choice = fnDisplayEmpMenu();
+
+	switch (choice)
+	{
+	case 1:
+		fnAddNewEmp();
+	case 2:
+		fnPrintEmp();
+	case 3:
+		fnMainMenu();
+	default:
+		printf("Enter a valid option\n");
+	}
 }
 
 /******************************************************************************
@@ -157,6 +243,16 @@ void fnEmpMenu()
 
 void fnDepartmentMenu()
 {
+	int choice = fnDisplayDepartmentMenu();
+	switch (choice)
+	{
+	case 1:
+		fnAddNewDepartment();
+	case 2:
+		fnPrintDepts();
+	case 3:
+		fnMainMenu();
+	}
 }
 
 /******************************************************************************
@@ -171,6 +267,26 @@ void fnDepartmentMenu()
 int fnDisplayMainMenu()
 {
 
+	printf("Telephone Directory Maintenance System\n");
+	printf("======================================\n");
+	printf("Main Menu\n");
+	printf("=========\n");
+	printf("1. Department Maintenance\n");
+	printf("2. Employee Maintenance\n");
+	printf("3. Telephone Directory Maintenance\n");
+	printf("4. Exit\n");
+
+	printf("Enter your choice : \n");
+	char choice = getch();
+
+	if (choice == '1')
+		return 1;
+	if (choice == '2')
+		return 2;
+	if (choice == '3')
+		return 3;
+	if (choice == '4')
+		exit(0);
 }
 
 /******************************************************************************
@@ -184,6 +300,24 @@ int fnDisplayMainMenu()
 
 void fnMainMenu()
 {
+	int choice = fnDisplayMainMenu();
+	switch (choice)
+	{
+	case 1:
+		fnDepartmentMenu();
+		break;
+	case 2:
+		fnEmpMenu();
+		break;
+	case 3:
+		fnTeleDirMenu();
+		break;
+	case 4:
+		exit(0);
+	default:
+		printf(" Enter a valid option");
+		fnMainMenu();
+	}
 }
 
 /******************************************************************************
@@ -209,7 +343,9 @@ void fnLoginScreen()
 	printf("				============			 \n");
 	printf("\n");
 	printf("     Enter User ID 	:  ......");
-	scanf("%s", chUserID);
+	// scanf("%s", chUserID);
+	getch();
+	fnMainMenu();
 }
 void fnLoginValidate(char acUserId[])
 {

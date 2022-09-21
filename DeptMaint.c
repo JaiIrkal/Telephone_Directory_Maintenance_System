@@ -12,8 +12,7 @@
 #include <stdlib.h>
 #include <conio.h>
 
-#include "filefunctions.h"
-
+//#include "filefunctions.h"
 /* Stores the Code of the next department that may be added */
 int giDeptCode;
 
@@ -30,6 +29,7 @@ int iFlag2;
 
 void fnInitializeDeptCode()
 {
+    printf("Init dept");
 }
 
 /******************************************************************************
@@ -54,7 +54,14 @@ int fnAddDept(char acDeptName[])
 
 void fnPrintDepts()
 {
-    fnOpenFile(1);
+    // fnOpenFile(1);
+
+    printf("Department Details");
+
+    printf("Enter any key to continue.....\n");
+    getch();
+
+    // fnDepartmentMenu();
 }
 
 /******************************************************************************
@@ -65,8 +72,27 @@ void fnPrintDepts()
 
 void fnAddNewDepartment()
 {
+    char dept_name[20];
+    system("cls");
+    printf("Telephone Directory Maintenance System");
+    printf("\n======================================");
+    printf("\nAdd a Department");
+    printf("\nEnter Department Name :");
+    // scanf("%s", dept_name);
+    printf("\nDepartment Code  :");
+    // generateDeptCode();
+    // printf("%d", giDeptCode);
+    printf("\nPress any key to continue");
+    // fnAddDept(dept_name);
+    getch();
+    // fnDepartmentMenu();
 }
 
 /******************************************************************************
  * End of DeptMaint.c
  ******************************************************************************/
+
+void generateDeptCode()
+{
+    giDeptCode++;
+}
