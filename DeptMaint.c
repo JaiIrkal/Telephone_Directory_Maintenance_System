@@ -29,7 +29,11 @@ int iFlag2;
 
 void fnInitializeDeptCode()
 {
+<<<<<<< HEAD
     printf("Init dept");
+=======
+    
+>>>>>>> 03d37295f2cbf0000d5b39f6ba4a821147ab3f00
 }
 
 /******************************************************************************
@@ -43,6 +47,7 @@ void fnInitializeDeptCode()
 
 int fnAddDept(char acDeptName[])
 {
+    
 }
 
 /******************************************************************************
