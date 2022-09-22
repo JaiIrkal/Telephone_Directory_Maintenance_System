@@ -13,9 +13,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <conio.h>
+#include <windows.h>
 /* Declaration of functions and constants used */
 #include "FileFunctions.h"
+
+FILE *fpDept;
+FILE *fpEmp;
 
 /******************************************************************************
  * Function: fnOpenFile
@@ -229,3 +233,13 @@ int fnCloseFile(int iFile)
 /******************************************************************************
  * End of FileFunctions.c
  ******************************************************************************/
+
+void fnGotoxy(int x, int y)
+{
+
+	COORD coord;
+	coord.X = x;
+	coord.Y = y;
+
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}

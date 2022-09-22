@@ -11,9 +11,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <windows.h>
 
 /* Declare constants and function prototypes */
-//#include "filefunctions.h"
+#include "Filefunctions.h"
+
+// void fnGotoxy(int x, int y);
 
 /* Forward declaration of functions defined in DeptMaint.c */
 int fnInitializeDeptCode();
@@ -48,6 +51,7 @@ void fnLoginScreen();
 
 int fnDisplayTeleDirMenu()
 {
+	system("cls");
 	printf("Telephone Directory Maintenance System\n");
 	printf("======================================\n");
 	printf("Telephone Directory Maintenance Menu\n");
@@ -75,6 +79,7 @@ int fnDisplayTeleDirMenu()
 
 int fnDisplayTeleEnqMenu()
 {
+	system("cls");
 	printf("Telephone Directory Maintenance System\n");
 	printf("%s", "======================================\n");
 	printf("Telephone Enquiry Menu\n");
@@ -156,6 +161,7 @@ void fnTeleDirMenu()
 
 int fnDisplayEmpMenu()
 {
+	system("cls");
 	printf("Telephone Directory Maintenace System\n");
 	printf("================================\n");
 
@@ -163,7 +169,7 @@ int fnDisplayEmpMenu()
 	printf("2. Print Employee Details\n");
 	printf("3. Goto Main Menu\n");
 
-	printf("Enter your Choice: \n");
+	printf("Enter your Choice......... \n");
 
 	char choice = getch();
 
@@ -186,6 +192,7 @@ int fnDisplayEmpMenu()
 
 int fnDisplayDepartmentMenu()
 {
+	system("cls");
 	printf("Telephone Directory Maintenance System\n");
 	printf("======================================\n");
 	printf("\n");
@@ -266,7 +273,7 @@ void fnDepartmentMenu()
 
 int fnDisplayMainMenu()
 {
-
+	system("cls");
 	printf("Telephone Directory Maintenance System\n");
 	printf("======================================\n");
 	printf("Main Menu\n");
@@ -336,13 +343,19 @@ void fnLogin()
 void fnLoginScreen()
 {
 	char chUserID[10];
+	system("cls");
+	fnGotoxy(25, 5);
+	// printf("\n");
+	printf("Telephone Directory Maintainance System");
+	fnGotoxy(25, 6);
+	printf("========================================");
+	fnGotoxy(35, 7);
+	printf("Login Screen");
+	fnGotoxy(35, 8);
+	printf("============");
 	printf("\n");
-	printf("			Telephone Directory Maintainance System\n");
-	printf("			========================================\n");
-	printf("				Login Screen\n");
-	printf("				============			 \n");
-	printf("\n");
-	printf("     Enter User ID 	:  ......");
+	fnGotoxy(15, 10);
+	printf("Enter User ID 	:  ......");
 	// scanf("%s", chUserID);
 	getch();
 	fnMainMenu();

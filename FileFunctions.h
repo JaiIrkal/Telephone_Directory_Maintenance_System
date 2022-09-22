@@ -1,11 +1,14 @@
+#ifndef _GUARD
+#define _GUARD
+
 /******************************************************************************
-* Filename    : FileFunctions.h
-* Author      : Education & Research Dept, Infosys Technologies Limited
-* Date        : 24-Feb-2005
-* Description : Declaration of functions and constants required to use the
-*               functions defined in FileFunctions.c
-* Modification Log: 
-******************************************************************************/
+ * Filename    : FileFunctions.h
+ * Author      : Education & Research Dept, Infosys Technologies Limited
+ * Date        : 24-Feb-2005
+ * Description : Declaration of functions and constants required to use the
+ *               functions defined in FileFunctions.c
+ * Modification Log:
+ ******************************************************************************/
 
 /* Pre-defined constants */
 
@@ -15,23 +18,22 @@
 
 /* Constants to define position in file */
 #define BEGIN 0
-#define CURRENT 1 
+#define CURRENT 1
 
 /* Length of records */
 #define EMP_RECLEN 50
 #define DEPT_RECLEN 50
 
-FILE *fpDept;
-FILE *fpEmp;
-
 /* Function declarations */
 
-int fnOpenFile ( int iFile );
-int fnReadFile ( char acLine[], int iFile, int ipos);
-void fnWriteFile ( char acLine[], int iFile);
-int fnUpdateFile ( char acLine[], int iFile);
-int fnCloseFile ( int iFile);
-
+int fnOpenFile(int iFile);
+int fnReadFile(char acLine[], int iFile, int ipos);
+void fnWriteFile(char acLine[], int iFile);
+int fnUpdateFile(char acLine[], int iFile);
+int fnCloseFile(int iFile);
+void fnGotoxy(int x, int y);
 /******************************************************************************
-* End of FileFunctions.h
-******************************************************************************/
+ * End of FileFunctions.h
+ ******************************************************************************/
+
+#endif
