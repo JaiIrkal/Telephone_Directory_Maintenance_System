@@ -104,7 +104,7 @@ void fnAddNewDepartment()
     printf("Telephone Directory Maintenance System");
     printf("\n======================================");
     printf("\nAdd a Department");
-    printf("\nEnter Department Name :  ..........");
+    printf("\nEnter Department Name :.........");
     printf("\nDepartment Code  :    ");
     generateDeptCode();
     printf("%d\n", giDeptCode);
