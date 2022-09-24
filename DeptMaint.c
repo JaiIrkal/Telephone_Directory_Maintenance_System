@@ -32,13 +32,17 @@ void generateDeptCode();
 
 void fnInitializeDeptCode()
 {
-    // char temp[20];
-    // fnOpenFile(DEP_FILE);
-    // while (fnReadFile(temp, DEP_FILE, CURRENT) == 0)
-    //     ;
-    // char temp_no[4];
-    // temp_no = substr(temp, 0, 3);
-    // giDeptCode = atoi(temp_no);
+    char deptDetails[20];
+    // char dept_name[4];
+
+    fnOpenFile(DEP_FILE);
+    while (fnReadFile(deptDetails, DEP_FILE, CURRENT) == 0)
+    {
+        sscanf(deptDetails, "%d%*s", &giDeptCode);
+    }
+    printf("DEPT_CODE: %d \n", giDeptCode);
+
+    fnCloseFile(DEP_FILE);
 }
 
 /******************************************************************************
@@ -57,7 +61,7 @@ int fnAddDept(char acDeptName[])
 
     fnOpenFile(DEP_FILE);
 
-    sprintf(acLine, "%4d %14s", ++giDeptCode, acDeptName);
+    sprintf(acLine, "%4d %14s", giDeptCode, acDeptName);
     fnWriteFile(acLine, DEP_FILE);
     fnCloseFile(DEP_FILE);
 
@@ -104,7 +108,7 @@ void fnAddNewDepartment()
     printf("Telephone Directory Maintenance System");
     printf("\n======================================");
     printf("\nAdd a Department");
-    printf("\nEnter Department Name :.........");
+    printf("\nEnter Department Name :  .........");
     printf("\nDepartment Code  :    ");
     generateDeptCode();
     printf("%d\n", giDeptCode);
@@ -122,6 +126,5 @@ void fnAddNewDepartment()
 
 void generateDeptCode()
 {
-    giDeptCode = 1002;
     giDeptCode++;
 }
