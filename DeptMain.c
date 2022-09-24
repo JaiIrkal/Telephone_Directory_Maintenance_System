@@ -30,6 +30,17 @@ int iFlag2;
 
 void fnInitializeDeptCode()
 {
+    char deptDetails[20];
+    // char dept_name[4];
+
+    fnOpenFile(DEP_FILE);
+    while (fnReadFile(deptDetails, DEP_FILE, CURRENT) == 0)
+    {
+        sscanf(deptDetails, "%d%*s", &giDeptCode);
+    }
+    printf("DEPT_CODE: %d \n", giDeptCode);
+
+    fnCloseFile(DEP_FILE);
 }
 
 /******************************************************************************
@@ -43,6 +54,16 @@ void fnInitializeDeptCode()
 
 int fnAddDept(char acDeptName[])
 {
+    int i;
+    char acLine[20];
+
+    fnOpenFile(DEP_FILE);
+
+    sprintf(acLine, "%4d %14s", giDeptCode, acDeptName);
+    fnWriteFile(acLine, DEP_FILE);
+    fnCloseFile(DEP_FILE);
+
+    fnDepartmentMenu();
 }
 
 /******************************************************************************
@@ -65,8 +86,29 @@ void fnPrintDepts()
 
 void fnAddNewDepartment()
 {
+    fnInitializeDeptCode();
+    char dept_name[20];
+    system("cls");
+    printf("Telephone Directory Maintenance System");
+    printf("\n======================================");
+    printf("\nAdd a Department");
+    printf("\nEnter Department Name :  .........");
+    printf("\nDepartment Code  :    ");
+    generateDeptCode();
+    printf("%d\n", giDeptCode);
+    printf("\nPress any key to continue");
+    fnGotoxy(25, 3);
+    scanf("%s", dept_name);
+    fnAddDept(dept_name);
+    getch();
+    fnDepartmentMenu();
 }
 
 /******************************************************************************
  * End of DeptMaint.c
  ******************************************************************************/
+
+void generateDeptCode()
+{
+    giDeptCode++;
+}
