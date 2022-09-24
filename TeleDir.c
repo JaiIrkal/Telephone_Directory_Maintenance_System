@@ -222,8 +222,10 @@ int fnDisplayMainMenu()
 	fnGotoxy(25, 13);
 	printf("3. Telephone Directory Maintenance");
 	fnGotoxy(25, 14);
-	printf("4. Exit");
-	fnGotoxy(25, 16);
+	printf("4. Telephone Enquiry Menu");
+	fnGotoxy(25, 15);
+	printf("5. Exit");
+	fnGotoxy(25, 17);
 	printf("Enter your choice : ");
 
 	char choice = getch();
@@ -231,17 +233,19 @@ int fnDisplayMainMenu()
 	switch (choice)
 	{
 	case '1':
-		fnDepartmentMenu();
+		return 1;
 		break;
 	case '2':
-		fnEmpMenu();
+		return 2;
 		break;
 	case '3':
-		fnTeleDirMenu();
+		return 3;
 		break;
 	case '4':
-		exit(0);
+		return 4;
 		break;
+	case '5':
+		exit(0);
 	default:
 		printf("Enter a valid choice");
 		fnDisplayMainMenu();
@@ -260,6 +264,23 @@ int fnDisplayMainMenu()
 void fnMainMenu()
 {
 	int choice = fnDisplayMainMenu();
+
+	switch (choice)
+	{
+	case 1:
+		fnDepartmentMenu();
+		break;
+	case 2:
+		fnEmpMenu();
+		break;
+	case 3:
+		fnTeleDirMenu();
+		break;
+	case 4:
+		fnTeleEnqMenu();
+		break;
+	default:
+	}
 }
 
 /******************************************************************************
