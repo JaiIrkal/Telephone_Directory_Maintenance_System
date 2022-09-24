@@ -114,6 +114,42 @@ int fnDisplayEmpMenu()
 
 int fnDisplayDepartmentMenu()
 {
+	char choice;
+	system("cls");
+	fnGotoxy(25, 5);
+	printf("Telephone Directory Maintainance System");
+	fnGotoxy(25, 6);
+	printf("========================================");
+	fnGotoxy(25, 8);
+	printf("Department Maintenance Menu");
+	fnGotoxy(25, 9);
+	printf("===========================");
+	fnGotoxy(25, 11);
+	printf("1. Add Departments");
+	fnGotoxy(25, 12);
+	printf("2. Print Department Details");
+	fnGotoxy(25, 13);
+	printf("3. Goto Main Menu");
+	fnGotoxy(25, 15);
+	printf("Enter your choice : ");
+
+	choice = getch();
+
+	switch (choice)
+	{
+	case '1':
+		return 1;
+		break;
+	case '2':
+		return 2;
+		break;
+	case '3':
+		return 3;
+		break;
+	default:
+		printf("Enter a valid choice!!");
+		fnDisplayDepartmentMenu();
+	}
 }
 
 /******************************************************************************
@@ -140,6 +176,23 @@ void fnEmpMenu()
 
 void fnDepartmentMenu()
 {
+	int choice = fnDisplayDepartmentMenu();
+
+	switch (choice)
+	{
+	case 1:
+		fnAddNewDepartment();
+		break;
+	case 2:
+		fnPrintDepts();
+		break;
+	case 3:
+		fnMainMenu();
+		break;
+
+	default:
+		break;
+	}
 }
 
 /******************************************************************************
@@ -153,6 +206,46 @@ void fnDepartmentMenu()
 
 int fnDisplayMainMenu()
 {
+	system("cls");
+	fnGotoxy(25, 5);
+	printf("Telephone Directory Maintainance System");
+	fnGotoxy(25, 6);
+	printf("=======================================");
+	fnGotoxy(25, 8);
+	printf("Main Menu");
+	fnGotoxy(25, 9);
+	printf("=========");
+	fnGotoxy(25, 11);
+	printf("1. Department Maintenance");
+	fnGotoxy(25, 12);
+	printf("2. Employee Maintenance");
+	fnGotoxy(25, 13);
+	printf("3. Telephone Directory Maintenance");
+	fnGotoxy(25, 14);
+	printf("4. Exit");
+	fnGotoxy(25, 16);
+	printf("Enter your choice : ");
+
+	char choice = getch();
+
+	switch (choice)
+	{
+	case '1':
+		fnDepartmentMenu();
+		break;
+	case '2':
+		fnEmpMenu();
+		break;
+	case '3':
+		fnTeleDirMenu();
+		break;
+	case '4':
+		exit(0);
+		break;
+	default:
+		printf("Enter a valid choice");
+		fnDisplayMainMenu();
+	}
 }
 
 /******************************************************************************
@@ -166,13 +259,14 @@ int fnDisplayMainMenu()
 
 void fnMainMenu()
 {
+	int choice = fnDisplayMainMenu();
 }
 
 /******************************************************************************
 * Function: fnLogin
 Description: Check for valid User Id and calls fnMainMenu.
- If invalid employee id is entered for User Id, error message "Login Denied"
- is displayed and quits the application.
+If invalid employee id is entered for User Id, error message "Login Denied"
+is displayed and quits the application.
 * Input Parameters: None
 * Return : None
 ******************************************************************************/
@@ -186,13 +280,16 @@ void fnLoginScreen()
 {
 
 	char chUserID[10];
-	printf("\n");
-	printf("			Telephone Directory Maintainance System\n");
-	printf("			========================================");
-	printf("			Login Screen 			 ");
-	printf("			============			 \n");
+	system("cls");
+	printf("Telephone Directory Maintainance System\n");
+	printf("========================================");
+	printf("Login Screen");
+	printf("============\n");
 	printf("Enter User ID 	:  ......");
-	scanf("%s", chUserID);
+	// scanf("%s", chUserID);
+
+	getch();
+	fnMainMenu();
 }
 void fnLoginValidate(char acUserId[])
 {
