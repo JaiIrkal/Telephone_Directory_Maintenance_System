@@ -21,9 +21,6 @@
 #define EMP_RECLEN 50
 #define DEPT_RECLEN 50
 
-FILE *fpDept;
-FILE *fpEmp;
-
 /* Function declarations */
 
 int fnOpenFile(int iFile);

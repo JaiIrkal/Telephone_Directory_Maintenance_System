@@ -9,8 +9,6 @@
 /* Stores the Code of the next employee that may be added */
 int giEmpCode;
 
-int iFlag;
-int iFlag2;
 /******************************************************************************
  * Function: fnInitializeEmpCode
  * Description: Reads all the employees in the employee file and initializes

@@ -81,9 +81,9 @@ void fnPrintDepts()
     printf("Telephone Directory Maintenance System");
     fnGotoxy(25, 6);
     printf("======================================");
-    fnGotoxy(35, 8);
+    fnGotoxy(30, 8);
     printf("Display all the Departments");
-    fnGotoxy(35, 9);
+    fnGotoxy(30, 9);
     printf("===========================");
 
     fnGotoxy(25, 11);
@@ -97,11 +97,12 @@ void fnPrintDepts()
     int i = 0;
     while (fnReadFile(deptDetails, DEP_FILE, CURRENT) == 0)
     {
-        sscanf(deptDetails, "%d %s", &dept_id, &dept_name);
-        fnGotoxy(25, 12 + i);
-        printf("%s", dept_name);
-        fnGotoxy(25, 12 + i);
+        sscanf(deptDetails, "%d%s", &dept_id, &dept_name);
+        fnGotoxy(30, 12 + i);
         printf("%d", dept_id);
+        fnGotoxy(56, 12 + i);
+        printf("%s", dept_name);
+
         i++;
     }
     fnGotoxy(25, 13 + i);
