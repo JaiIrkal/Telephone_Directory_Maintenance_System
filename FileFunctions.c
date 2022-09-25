@@ -16,6 +16,8 @@
 #include <Windows.h>
 /* Declaration of functions and constants used */
 #include "FileFunctions.h"
+FILE *fpDept;
+FILE *fpEmp;
 
 /******************************************************************************
  * Function: fnOpenFile
