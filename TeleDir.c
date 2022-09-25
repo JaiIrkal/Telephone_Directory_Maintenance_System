@@ -47,9 +47,31 @@ void fnLoginValidate(char acUserId[]);
 int fnDisplayTeleDirMenu()
 {
 
-	printf("\n");
+	system("cls");
 	printf("Telephone Directory Mainatinance System\n");
 	printf("========================================");
+	printf("Telephone Directory Maintenance Menu");
+	printf("====================================");
+
+	printf("1. Add Telephone Number");
+	printf("2. Goto Main Menu");
+
+	printf("Enter your choice :");
+
+	char choice = getch();
+
+	switch (choice)
+	{
+	case '1':
+		return 1;
+		break;
+	case '2':
+		return 2;
+		break;
+	default:
+		printf("Enter a valid choice");
+		fnTeleDirMenu();
+	}
 }
 
 /******************************************************************************
@@ -148,7 +170,7 @@ int fnDisplayDepartmentMenu()
 		break;
 	default:
 		printf("Enter a valid choice!!");
-		fnDisplayDepartmentMenu();
+		fnDepartmentMenu();
 	}
 }
 
@@ -248,7 +270,7 @@ int fnDisplayMainMenu()
 		exit(0);
 	default:
 		printf("Enter a valid choice");
-		fnDisplayMainMenu();
+		fnMainMenu();
 	}
 }
 
