@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <conio.h>
 
-#include "filefunctions.h"
+#include "Filefunctions.h"
 
 /* Stores the Code of the next department that may be added */
 int giDeptCode;
@@ -33,7 +33,6 @@ void fnInitializeDeptCode()
     char deptDetails[20];
     // char dept_name[4];
 
-    fnOpenFile(DEP_FILE);
     while (fnReadFile(deptDetails, DEP_FILE, CURRENT) == 0)
     {
         sscanf(deptDetails, "%d%*s", &giDeptCode);
@@ -54,16 +53,28 @@ void fnInitializeDeptCode()
 
 int fnAddDept(char acDeptName[])
 {
-    int i;
     char acLine[20];
+    char tempDeptName[16];
+    int i;
+    for (int i = 1000; i < giDeptCode; i++)
+    {
+        if (i == 1000)
+            fnReadFile(acLine, DEP_FILE, BEGIN);
+        else
+            fnReadFile(acLine, DEP_FILE, CURRENT);
 
-    fnOpenFile(DEP_FILE);
+        sscanf(acLine, "%*d, %s", tempDeptName);
+        if (strcasecmp(acDeptName, acLine) == 0)
+        {
+            return 1;
+        }
+    }
 
     sprintf(acLine, "%4d %14s", giDeptCode, acDeptName);
     fnWriteFile(acLine, DEP_FILE);
-    fnCloseFile(DEP_FILE);
 
     fnDepartmentMenu();
+    return 0;
 }
 
 /******************************************************************************
@@ -85,7 +96,6 @@ void fnPrintDepts()
     printf("Display all the Departments");
     fnGotoxy(30, 9);
     printf("===========================");
-
     fnGotoxy(25, 11);
     printf("Department Code");
     fnGotoxy(50, 11);
@@ -93,7 +103,6 @@ void fnPrintDepts()
     char deptDetails[20];
     char dept_name[15];
     int dept_id;
-    fnOpenFile(DEP_FILE);
     int i = 0;
     while (fnReadFile(deptDetails, DEP_FILE, CURRENT) == 0)
     {
@@ -102,7 +111,6 @@ void fnPrintDepts()
         printf("%d", dept_id);
         fnGotoxy(56, 12 + i);
         printf("%s", dept_name);
-
         i++;
     }
     fnGotoxy(25, 13 + i);
@@ -132,7 +140,28 @@ void fnAddNewDepartment()
     printf("\nPress any key to continue");
     fnGotoxy(25, 3);
     scanf("%s", dept_name);
-    fnAddDept(dept_name);
+    if (strlen(dept_name) > 15)
+    {
+        printf("The Department name should not exceed 15 character");
+        printf("Press any key to reenter Department Name");
+        getch();
+        fnAddNewDepartment();
+    }
+    else
+    {
+        if (fnAddDept(dept_name) == 1)
+        {
+            printf("The Department already exits!!");
+            printf("Press any key to reenter Department Name");
+            fnAddNewDepartment();
+        }
+        else
+        {
+            printf("Department added");
+            printf("Enter any key to continue....");
+        }
+    }
+
     getch();
     fnDepartmentMenu();
 }

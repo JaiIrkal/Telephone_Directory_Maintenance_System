@@ -198,6 +198,7 @@ void fnEmpMenu()
 
 void fnDepartmentMenu()
 {
+	fnOpenFile(DEP_FILE);
 	int choice = fnDisplayDepartmentMenu();
 
 	switch (choice)
@@ -209,6 +210,7 @@ void fnDepartmentMenu()
 		fnPrintDepts();
 		break;
 	case 3:
+		fnCloseFile(DEP_FILE);
 		fnMainMenu();
 		break;
 
