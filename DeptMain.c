@@ -94,15 +94,17 @@ void fnPrintDepts()
     char dept_name[15];
     int dept_id;
     fnOpenFile(DEP_FILE);
+    int i = 0;
     while (fnReadFile(deptDetails, DEP_FILE, CURRENT) == 0)
     {
         sscanf(deptDetails, "%d %s", &dept_id, &dept_name);
-        fnGotoxy(25, 12);
+        fnGotoxy(25, 12 + i);
         printf("%s", dept_name);
-        fnGotoxy(25, 12);
+        fnGotoxy(25, 12 + i);
         printf("%d", dept_id);
+        i++;
     }
-
+    fnGotoxy(25, 13 + i);
     printf("Enter any key to continue :");
     getch();
     fnDepartmentMenu();
