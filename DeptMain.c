@@ -75,7 +75,37 @@ int fnAddDept(char acDeptName[])
 
 void fnPrintDepts()
 {
-    fnOpenFile(1);
+    system("cls");
+
+    fnGotoxy(25, 5);
+    printf("Telephone Directory Maintenance System");
+    fnGotoxy(25, 6);
+    printf("======================================");
+    fnGotoxy(35, 8);
+    printf("Display all the Departments");
+    fnGotoxy(35, 9);
+    printf("===========================");
+
+    fnGotoxy(25, 11);
+    printf("Department Code");
+    fnGotoxy(50, 11);
+    printf("Department Name");
+    char deptDetails[20];
+    char dept_name[15];
+    int dept_id;
+    fnOpenFile(DEP_FILE);
+    while (fnReadFile(deptDetails, DEP_FILE, CURRENT) == 0)
+    {
+        sscanf(deptDetails, "%d %s", &dept_id, &dept_name);
+        fnGotoxy(25, 12);
+        printf("%s", dept_name);
+        fnGotoxy(25, 12);
+        printf("%d", dept_id);
+    }
+
+    printf("Enter any key to continue :");
+    getch();
+    fnDepartmentMenu();
 }
 
 /******************************************************************************
