@@ -5,8 +5,16 @@
  * Description : Contains the functions required for the employee
  *		maintenance.
  *******************************************************************************/
+/* Included the libraries here */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <conio.h>
+
+#include "filefunctions.h"
 
 /* Stores the Code of the next employee that may be added */
+
 int giEmpCode;
 
 /******************************************************************************
@@ -19,6 +27,20 @@ int giEmpCode;
 
 int fnInitializeEmpCode()
 {
+    char chEmpDetails[20];
+
+    // We open the emp.txt file
+    fnOpenFile(EMP_FILE);
+
+    while (fnReadFile(chEmpDetails, EMP_FILE, CURRENT) == 0)
+    {
+
+        sscanf(chEmpDetails, "%d%*s", &giEmpCode);
+    }
+
+    printf("EMP_CODE: %d", giEmpCode);
+
+    fnCloseFile(EMP_FILE);
 }
 
 /******************************************************************************
@@ -40,4 +62,5 @@ void fnAddNewEmp()
  ******************************************************************************/
 void fnPrintEmp()
 {
+    fnOpenFile(EMP_FILE);
 }
